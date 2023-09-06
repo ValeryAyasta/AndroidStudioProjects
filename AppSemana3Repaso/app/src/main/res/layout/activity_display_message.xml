@@ -13,7 +13,8 @@
         android:textColor="#4CAF50"
         android:textSize="24sp"
         android:textStyle="bold|italic"
-        tools:layout_editor_absoluteX="89dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         tools:layout_editor_absoluteY="87dp"
         tools:text="Aqui vendra el usuario" />
 </androidx.constraintlayout.widget.ConstraintLayout>
