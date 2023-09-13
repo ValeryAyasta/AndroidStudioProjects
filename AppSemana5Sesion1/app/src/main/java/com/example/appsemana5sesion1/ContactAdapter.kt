@@ -1,5 +1,6 @@
 package com.example.appsemana5sesion1
 
+import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
@@ -9,6 +10,10 @@ import androidx.recyclerview.widget.RecyclerView.Adapter
 class ContactAdapter(var contacts: ArrayList<Contact>): Adapter<ContactPrototype>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ContactPrototype {
         //metodo que muestra cada elemento en el prototype
+
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.prototype_contact, parent, false)
+
+        return ContactPrototype(view)
     }
 
     override fun onBindViewHolder(holder: ContactPrototype, position: Int) {
