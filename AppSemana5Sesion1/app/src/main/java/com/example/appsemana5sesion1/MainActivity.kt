@@ -7,6 +7,8 @@ class MainActivity : AppCompatActivity() {
 
     var contacts = ArrayList<Contact>()
 
+    var contactAdapter = ContactAdapter()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
