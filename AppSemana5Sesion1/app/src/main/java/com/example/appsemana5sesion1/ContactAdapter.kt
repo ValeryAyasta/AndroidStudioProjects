@@ -8,11 +8,13 @@ import androidx.recyclerview.widget.RecyclerView.Adapter
 
 class ContactAdapter(var contacts: ArrayList<Contact>): Adapter<ContactPrototype>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ContactPrototype {
-        TODO("Not yet implemented")
+        //metodo que muestra cada elemento en el prototype
     }
 
     override fun onBindViewHolder(holder: ContactPrototype, position: Int) {
-        TODO("Not yet implemented")
+        //metodo q vincula
+
+        holder.bind(contacts.get(position))
     }
 
     override fun getItemCount(): Int {
