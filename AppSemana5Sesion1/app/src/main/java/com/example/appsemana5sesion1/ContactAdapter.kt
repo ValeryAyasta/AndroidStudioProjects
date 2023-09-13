@@ -17,3 +17,7 @@ class ContactAdapter(var contacts: ArrayList<Contact>): Adapter<ContactPrototype
     }
 
 }
+
+class ContactPrototype {
+
+}
