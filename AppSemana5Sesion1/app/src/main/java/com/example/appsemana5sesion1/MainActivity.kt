@@ -8,7 +8,7 @@ class MainActivity : AppCompatActivity() {
 
     var contacts = ArrayList<Contact>()
 
-    var contactAdapter = ContactAdapter()
+    var contactAdapter = ContactAdapter(contacts)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
