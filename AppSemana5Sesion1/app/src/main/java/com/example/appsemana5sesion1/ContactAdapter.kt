@@ -1,6 +1,8 @@
 package com.example.appsemana5sesion1
 
+import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.Adapter
 
 class ContactAdapter(var contacts: ArrayList<Contact>): Adapter<ContactPrototype>() {
@@ -18,6 +20,6 @@ class ContactAdapter(var contacts: ArrayList<Contact>): Adapter<ContactPrototype
 
 }
 
-class ContactPrototype {
+class ContactPrototype(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
 }
