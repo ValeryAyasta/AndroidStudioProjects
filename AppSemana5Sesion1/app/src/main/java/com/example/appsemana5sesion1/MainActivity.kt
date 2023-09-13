@@ -2,6 +2,7 @@ package com.example.appsemana5sesion1
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.recyclerview.widget.RecyclerView
 
 class MainActivity : AppCompatActivity() {
 
@@ -14,6 +15,10 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         loadContacts()
+    }
+
+    private fun initView(){
+        val rvContact = findViewById<RecyclerView>(R.id.rvContact)
     }
 
     private fun loadContacts() {
