@@ -2,6 +2,8 @@ package com.example.appsemana5sesion1
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuInflater
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
@@ -36,4 +38,13 @@ class MainActivity : AppCompatActivity() {
     }
 
 
+    //voy a sobreescribir el metodo onCreateOptionsMenu
+    //CTRL + "O"
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+
+        val inflater : MenuInflater = menuInflater
+        inflater.inflate(R.menu.main_menu, menu)
+
+        return true
+    }
 }
