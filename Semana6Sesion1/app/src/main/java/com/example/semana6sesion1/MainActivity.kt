@@ -18,5 +18,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun loadContacts() {
        contacts = AppDatabase.getInstance(this).getDao().getAll()
+
+        //min 1:55:55
     }
 }
