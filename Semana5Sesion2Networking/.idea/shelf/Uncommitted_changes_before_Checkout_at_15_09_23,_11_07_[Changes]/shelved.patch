@@ -1,0 +1,60 @@
+Index: ../../../../../Alumnos/Documents/GitHub/AndroidStudioProjects/AppSemana5Sesion1/app/src/main/res/layout/activity_contact.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\n<androidx.constraintlayout.widget.ConstraintLayout xmlns:android=\"http://schemas.android.com/apk/res/android\"\n    xmlns:app=\"http://schemas.android.com/apk/res-auto\"\n    xmlns:tools=\"http://schemas.android.com/tools\"\n    android:id=\"@+id/etName\"\n    android:layout_width=\"match_parent\"\n    android:layout_height=\"match_parent\"\n    tools:context=\".ContactActivity\">\n\n    <com.google.android.material.textfield.TextInputLayout\n        android:id=\"@+id/textInputLayout\"\n        android:layout_width=\"409dp\"\n        android:layout_height=\"wrap_content\"\n        android:layout_marginStart=\"1dp\"\n        android:layout_marginTop=\"8dp\"\n        android:layout_marginEnd=\"1dp\"\n        app:layout_constraintEnd_toEndOf=\"parent\"\n        app:layout_constraintStart_toStartOf=\"parent\"\n        app:layout_constraintTop_toTopOf=\"parent\">\n\n        <com.google.android.material.textfield.TextInputEditText\n            android:layout_width=\"match_parent\"\n            android:layout_height=\"wrap_content\"\n            android:layout_weight=\"@dimen/material_emphasis_high_type\"\n            android:hint=\"@string/hint_nombre\"\n            android:textAppearance=\"@style/TextAppearance.AppCompat.Medium\" />\n    </com.google.android.material.textfield.TextInputLayout>\n\n    <com.google.android.material.textfield.TextInputLayout\n        android:id=\"@+id/etTelephone\"\n        android:layout_width=\"409dp\"\n        android:layout_height=\"wrap_content\"\n        android:layout_marginStart=\"8dp\"\n        android:layout_marginTop=\"8dp\"\n        android:layout_marginEnd=\"8dp\"\n        app:layout_constraintEnd_toEndOf=\"parent\"\n        app:layout_constraintStart_toStartOf=\"parent\"\n        app:layout_constraintTop_toBottomOf=\"@+id/textInputLayout\">\n\n        <com.google.android.material.textfield.TextInputEditText\n            android:layout_width=\"match_parent\"\n            android:layout_height=\"wrap_content\"\n            android:hint=\"@string/ingrese_telefono\"\n            android:textAppearance=\"@style/TextAppearance.AppCompat.Medium\"\n            android:textColor=\"#A39797\" />\n    </com.google.android.material.textfield.TextInputLayout>\n</androidx.constraintlayout.widget.ConstraintLayout>
+===================================================================
+diff --git a/../../../../../Alumnos/Documents/GitHub/AndroidStudioProjects/AppSemana5Sesion1/app/src/main/res/layout/activity_contact.xml b/../../../../../Alumnos/Documents/GitHub/AndroidStudioProjects/AppSemana5Sesion1/app/src/main/res/layout/activity_contact.xml
+--- a/../../../../../Alumnos/Documents/GitHub/AndroidStudioProjects/AppSemana5Sesion1/app/src/main/res/layout/activity_contact.xml	
++++ b/../../../../../Alumnos/Documents/GitHub/AndroidStudioProjects/AppSemana5Sesion1/app/src/main/res/layout/activity_contact.xml	
+@@ -19,6 +19,7 @@
+         app:layout_constraintTop_toTopOf="parent">
+ 
+         <com.google.android.material.textfield.TextInputEditText
++            android:id="@+id/etName"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:layout_weight="@dimen/material_emphasis_high_type"
+Index: ../../../../../Alumnos/Documents/GitHub/AndroidStudioProjects/AppSemana5Sesion1/app/src/main/java/com/example/appsemana5sesion1/ContactActivity.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.appsemana5sesion1\n\nimport androidx.appcompat.app.AppCompatActivity\nimport android.os.Bundle\n\nclass ContactActivity : AppCompatActivity() {\n    override fun onCreate(savedInstanceState: Bundle?) {\n        super.onCreate(savedInstanceState)\n        setContentView(R.layout.activity_contact)\n    }\n}
+===================================================================
+diff --git a/../../../../../Alumnos/Documents/GitHub/AndroidStudioProjects/AppSemana5Sesion1/app/src/main/java/com/example/appsemana5sesion1/ContactActivity.kt b/../../../../../Alumnos/Documents/GitHub/AndroidStudioProjects/AppSemana5Sesion1/app/src/main/java/com/example/appsemana5sesion1/ContactActivity.kt
+--- a/../../../../../Alumnos/Documents/GitHub/AndroidStudioProjects/AppSemana5Sesion1/app/src/main/java/com/example/appsemana5sesion1/ContactActivity.kt	
++++ b/../../../../../Alumnos/Documents/GitHub/AndroidStudioProjects/AppSemana5Sesion1/app/src/main/java/com/example/appsemana5sesion1/ContactActivity.kt	
+@@ -2,10 +2,34 @@
+ 
+ import androidx.appcompat.app.AppCompatActivity
+ import android.os.Bundle
++import android.view.Menu
++import android.view.MenuInflater
++import android.view.MenuItem
++import android.widget.EditText
+ 
+ class ContactActivity : AppCompatActivity() {
+     override fun onCreate(savedInstanceState: Bundle?) {
+         super.onCreate(savedInstanceState)
+         setContentView(R.layout.activity_contact)
+     }
++
++    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
++
++        val inflater : MenuInflater = menuInflater
++        inflater.inflate(R.menu.main_menu, menu)
++
++        return true
++    }
++
++    override fun onOptionsItemSelected(item: MenuItem): Boolean {
++        saveContact()
++
++        return super.onOptionsItemSelected(item)
++    }
++
++    private fun saveContact() {
++        val name = findViewById<EditText>(R.id.etName).text
++
++
++    }
+ }
+\ No newline at end of file

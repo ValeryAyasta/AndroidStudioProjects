@@ -1,0 +1,128 @@
+Index: ../../../../../Alumnos/Documents/GitHub/AndroidStudioProjects/AppSemana5Sesion1/app/src/main/java/com/example/appsemana5sesion1/MainActivity.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.appsemana5sesion1\n\nimport androidx.appcompat.app.AppCompatActivity\nimport android.os.Bundle\nimport android.view.Menu\nimport android.view.MenuInflater\nimport androidx.recyclerview.widget.LinearLayoutManager\nimport androidx.recyclerview.widget.RecyclerView\n\nclass MainActivity : AppCompatActivity() {\n\n    var contacts = ArrayList<Contact>()\n\n    var contactAdapter = ContactAdapter(contacts)\n\n    override fun onCreate(savedInstanceState: Bundle?) {\n        super.onCreate(savedInstanceState)\n        setContentView(R.layout.activity_main)\n\n        loadContacts()\n\n        initView()\n    }\n\n    private fun initView(){\n        val rvContact = findViewById<RecyclerView>(R.id.rvContact)\n\n        rvContact.adapter = contactAdapter\n        rvContact.layoutManager = LinearLayoutManager(this)\n    }\n\n    private fun loadContacts() {\n        contacts.add(Contact(\"Lucho Lopez\", \"123456789\"))\n        contacts.add(Contact(\"Lucia Lopez\", \"123400789\"))\n        contacts.add(Contact(\"Luz Lopez\", \"123456789\"))\n        contacts.add(Contact(\"Lucas Lopez\", \"123456700\"))\n        contacts.add(Contact(\"Luna Lopez\", \"120056789\"))\n    }\n\n\n    //voy a sobreescribir el metodo onCreateOptionsMenu\n    //CTRL + \"O\"\n    override fun onCreateOptionsMenu(menu: Menu?): Boolean {\n\n        val inflater : MenuInflater = menuInflater\n        inflater.inflate(R.menu.main_menu, menu)\n\n        return true\n    }\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/../../../../../Alumnos/Documents/GitHub/AndroidStudioProjects/AppSemana5Sesion1/app/src/main/java/com/example/appsemana5sesion1/MainActivity.kt b/../../../../../Alumnos/Documents/GitHub/AndroidStudioProjects/AppSemana5Sesion1/app/src/main/java/com/example/appsemana5sesion1/MainActivity.kt
+--- a/../../../../../Alumnos/Documents/GitHub/AndroidStudioProjects/AppSemana5Sesion1/app/src/main/java/com/example/appsemana5sesion1/MainActivity.kt	
++++ b/../../../../../Alumnos/Documents/GitHub/AndroidStudioProjects/AppSemana5Sesion1/app/src/main/java/com/example/appsemana5sesion1/MainActivity.kt	
+@@ -1,9 +1,11 @@
+ package com.example.appsemana5sesion1
+ 
++import android.content.Intent
+ import androidx.appcompat.app.AppCompatActivity
+ import android.os.Bundle
+ import android.view.Menu
+ import android.view.MenuInflater
++import android.view.MenuItem
+ import androidx.recyclerview.widget.LinearLayoutManager
+ import androidx.recyclerview.widget.RecyclerView
+ 
+@@ -47,4 +49,13 @@
+ 
+         return true
+     }
++
++    override fun onOptionsItemSelected(item: MenuItem): Boolean {
++
++        val intent = Intent(this, ContactActivity::class.java)
++        startActivity(intent)
++
++
++        return super.onOptionsItemSelected(item)
++    }
+ }
+\ No newline at end of file
+Index: ../../../../../Alumnos/Documents/GitHub/AndroidStudioProjects/AppSemana5Sesion1/.idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"ExternalStorageConfigurationManager\" enabled=\"true\" />\n  <component name=\"ProjectRootManager\" version=\"2\" languageLevel=\"JDK_17\" default=\"true\" project-jdk-name=\"jbr-17\" project-jdk-type=\"JavaSDK\">\n    <output url=\"file://$PROJECT_DIR$/build/classes\" />\n  </component>\n  <component name=\"ProjectType\">\n    <option name=\"id\" value=\"Android\" />\n  </component>\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/../../../../../Alumnos/Documents/GitHub/AndroidStudioProjects/AppSemana5Sesion1/.idea/misc.xml b/../../../../../Alumnos/Documents/GitHub/AndroidStudioProjects/AppSemana5Sesion1/.idea/misc.xml
+--- a/../../../../../Alumnos/Documents/GitHub/AndroidStudioProjects/AppSemana5Sesion1/.idea/misc.xml	
++++ b/../../../../../Alumnos/Documents/GitHub/AndroidStudioProjects/AppSemana5Sesion1/.idea/misc.xml	
+@@ -1,4 +1,3 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
+   <component name="ExternalStorageConfigurationManager" enabled="true" />
+   <component name="ProjectRootManager" version="2" languageLevel="JDK_17" default="true" project-jdk-name="jbr-17" project-jdk-type="JavaSDK">
+Index: ../../../../../Alumnos/Documents/GitHub/AndroidStudioProjects/AppSemana5Sesion1/.idea/gradle.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"GradleSettings\">\n    <option name=\"linkedExternalProjectsSettings\">\n      <GradleProjectSettings>\n        <option name=\"testRunner\" value=\"GRADLE\" />\n        <option name=\"distributionType\" value=\"DEFAULT_WRAPPED\" />\n        <option name=\"externalProjectPath\" value=\"$PROJECT_DIR$\" />\n        <option name=\"gradleJvm\" value=\"jbr-17\" />\n        <option name=\"modules\">\n          <set>\n            <option value=\"$PROJECT_DIR$\" />\n            <option value=\"$PROJECT_DIR$/app\" />\n          </set>\n        </option>\n      </GradleProjectSettings>\n    </option>\n  </component>\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/../../../../../Alumnos/Documents/GitHub/AndroidStudioProjects/AppSemana5Sesion1/.idea/gradle.xml b/../../../../../Alumnos/Documents/GitHub/AndroidStudioProjects/AppSemana5Sesion1/.idea/gradle.xml
+--- a/../../../../../Alumnos/Documents/GitHub/AndroidStudioProjects/AppSemana5Sesion1/.idea/gradle.xml	
++++ b/../../../../../Alumnos/Documents/GitHub/AndroidStudioProjects/AppSemana5Sesion1/.idea/gradle.xml	
+@@ -1,5 +1,6 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
++  <component name="GradleMigrationSettings" migrationVersion="1" />
+   <component name="GradleSettings">
+     <option name="linkedExternalProjectsSettings">
+       <GradleProjectSettings>
+Index: ../../../../../Alumnos/Documents/GitHub/AndroidStudioProjects/Semana5Sesion2Networking/.idea/misc.xml
+===================================================================
+diff --git a/../../../../../Alumnos/Documents/GitHub/AndroidStudioProjects/Semana5Sesion2Networking/.idea/misc.xml b/../../../../../Alumnos/Documents/GitHub/AndroidStudioProjects/Semana5Sesion2Networking/.idea/misc.xml
+new file mode 100644
+--- /dev/null	
++++ b/../../../../../Alumnos/Documents/GitHub/AndroidStudioProjects/Semana5Sesion2Networking/.idea/misc.xml	
+@@ -0,0 +1,10 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="ExternalStorageConfigurationManager" enabled="true" />
++  <component name="ProjectRootManager" version="2" languageLevel="JDK_17" default="true" project-jdk-name="jbr-17" project-jdk-type="JavaSDK">
++    <output url="file://$PROJECT_DIR$/build/classes" />
++  </component>
++  <component name="ProjectType">
++    <option name="id" value="Android" />
++  </component>
++</project>
+\ No newline at end of file
+Index: ../../../../../Alumnos/Documents/GitHub/AndroidStudioProjects/Semana5Sesion2Networking/.idea/vcs.xml
+===================================================================
+diff --git a/../../../../../Alumnos/Documents/GitHub/AndroidStudioProjects/Semana5Sesion2Networking/.idea/vcs.xml b/../../../../../Alumnos/Documents/GitHub/AndroidStudioProjects/Semana5Sesion2Networking/.idea/vcs.xml
+new file mode 100644
+--- /dev/null	
++++ b/../../../../../Alumnos/Documents/GitHub/AndroidStudioProjects/Semana5Sesion2Networking/.idea/vcs.xml	
+@@ -0,0 +1,6 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="VcsDirectoryMappings">
++    <mapping directory="$PROJECT_DIR$/.." vcs="Git" />
++  </component>
++</project>
+\ No newline at end of file
+Index: ../../../../../Alumnos/Documents/GitHub/AndroidStudioProjects/Semana5Sesion2Networking/.idea/gradle.xml
+===================================================================
+diff --git a/../../../../../Alumnos/Documents/GitHub/AndroidStudioProjects/Semana5Sesion2Networking/.idea/gradle.xml b/../../../../../Alumnos/Documents/GitHub/AndroidStudioProjects/Semana5Sesion2Networking/.idea/gradle.xml
+new file mode 100644
+--- /dev/null	
++++ b/../../../../../Alumnos/Documents/GitHub/AndroidStudioProjects/Semana5Sesion2Networking/.idea/gradle.xml	
+@@ -0,0 +1,19 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="GradleSettings">
++    <option name="linkedExternalProjectsSettings">
++      <GradleProjectSettings>
++        <option name="testRunner" value="GRADLE" />
++        <option name="distributionType" value="DEFAULT_WRAPPED" />
++        <option name="externalProjectPath" value="$PROJECT_DIR$" />
++        <option name="gradleJvm" value="jbr-17" />
++        <option name="modules">
++          <set>
++            <option value="$PROJECT_DIR$" />
++            <option value="$PROJECT_DIR$/app" />
++          </set>
++        </option>
++      </GradleProjectSettings>
++    </option>
++  </component>
++</project>
+\ No newline at end of file
