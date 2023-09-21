@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">GeoQuiz</string>
+    <string name="si">SI</string>
+    <string name="no">NO</string>
+    <string name="next">Next</string>
+    <string name="correct">"Correct: "</string>
+    <string name="cero">0</string>
+    <string name="blank">Blank:</string>
+    <string name="incorrect">Incorrect:</string>
+</resources>
