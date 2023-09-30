@@ -5,27 +5,26 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
 import java.io.Serializable
+import java.util.Calendar
+import java.util.Date
 
 @Entity
-class Joke (
+class Joke(
 
-    @PrimaryKey(autoGenerate = true)
-    val id:Int,
+    //@PrimaryKey(autoGenerate = true)
+    //val id:Int=0,
 
-    @SerializedName("source")
-    val source:String,
+    val rating: Float? = null,
 
-    @SerializedName("joke_id")
+    @SerializedName("id")
     val joke_id:String,
 
-    @SerializedName("content")
+    @SerializedName("joke")
     val content: String,
 
-    @SerializedName("rating")
-    val rating: Float,
+    var source:String? =null,
 
-    @ColumnInfo(name = "created_at")
-    val createdAt: Long = System.currentTimeMillis()
-
+    @ColumnInfo(name = "created_at", defaultValue = "CURRENT_TIMESTAMP")
+    val createdAt: Any,
 
 ):Serializable

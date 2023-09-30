@@ -3,6 +3,7 @@ package com.example.partysoul
 import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.webkit.ConsoleMessage
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.partysoul.adapter.JokeAdapter
@@ -14,6 +15,8 @@ import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import java.io.Console
+import java.util.Date
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -32,8 +35,10 @@ class MainActivity : AppCompatActivity() {
 
         //lamar a retrofit
 
+        val url:String = "https://icanhazdadjoke.com/"
+
         val retrofit = Retrofit.Builder()
-            .baseUrl("https://icanhazdadjoke.com/")
+            .baseUrl(url)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
 
@@ -51,8 +56,14 @@ class MainActivity : AppCompatActivity() {
                 if (response.isSuccessful){
                     val jokes: List<Joke> = response.body()!!.results?: ArrayList()
 
+                    println(System.currentTimeMillis())
+                    print(Date().time)
+
+                    jokes.map { joke: Joke -> joke.source = url }
+
                     rvJokes.layoutManager = LinearLayoutManager(this@MainActivity)
                     rvJokes.adapter = JokeAdapter(jokes, context)
+
 
                 }
             }
