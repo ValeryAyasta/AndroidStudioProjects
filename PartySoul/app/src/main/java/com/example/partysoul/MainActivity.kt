@@ -19,6 +19,9 @@ import java.io.Console
 import java.util.Date
 
 class MainActivity : AppCompatActivity() {
+
+
+    lateinit var rvJokes:RecyclerView
     override fun onCreate(savedInstanceState: Bundle?) {
 
 
@@ -26,12 +29,16 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        rvJokes = findViewById<RecyclerView>(R.id.rvJokes)
+
+
         loadJokes(this)
+
+
     }
 
 
     private fun loadJokes(context : Context) {
-        val rvJokes = findViewById<RecyclerView>(R.id.rvJokes)
 
         //lamar a retrofit
 
