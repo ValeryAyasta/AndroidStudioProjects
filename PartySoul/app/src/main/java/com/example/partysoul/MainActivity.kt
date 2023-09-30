@@ -17,6 +17,8 @@ class MainActivity : AppCompatActivity() {
 
 
     private fun loadJokes() {
-        val rvJokes = findViewById<RecyclerView>(R.id.)
+        val rvJokes = findViewById<RecyclerView>(R.id.rvJokes)
+
+
     }
 }
