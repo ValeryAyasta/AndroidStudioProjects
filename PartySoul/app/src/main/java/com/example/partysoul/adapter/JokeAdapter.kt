@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.RatingBar
 import android.widget.TextView
+import android.widget.Toast
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.Adapter
@@ -33,19 +34,43 @@ class JokeAdapter(val jokes: List<Joke>, val context: Context) : Adapter<JokeAda
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val joke = jokes[position]
+
+        var joke = jokes[position]
 
         holder.tvJoke.text = joke.content;
 
         holder.tvSource.text = joke.source;
 
+        //si hay imagen traerla acá (Picasso)
 
-        holder.rbRating.setOnRatingBarChangeListener { _, rating, _ ->
-            joke.rating = rating
+        val dao = AppDatabase.getInstance(context).getDao()
 
-            AppDatabase.getInstance(context).getDao().insertJoke(joke)
+        val existingJoke = dao.getAll().find { j : Joke -> j.content == joke.content }
+
+        if (existingJoke != null){
+            holder.rbRating.rating = existingJoke.rating
+        }
+        else{
+            holder.rbRating.rating = joke.rating
         }
 
-        //si hay imagen traerla acá (Picasso)
+        holder.rbRating.setOnRatingBarChangeListener { _, rating, _ ->
+
+               if (existingJoke != null) {
+                   existingJoke.rating = rating
+                   dao.update(existingJoke)
+                   Toast.makeText(context, "Updated!", Toast.LENGTH_SHORT).show()
+               }
+                else{
+                   joke.rating = rating
+                   dao.insertJoke(joke)
+                   Toast.makeText(context, "Added!", Toast.LENGTH_SHORT).show()
+               }
+
+        }
+
     }
+
+
+
 }

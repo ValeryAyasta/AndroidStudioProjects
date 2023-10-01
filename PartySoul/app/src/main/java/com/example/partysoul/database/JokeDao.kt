@@ -10,7 +10,7 @@ import com.example.partysoul.models.Joke
 @Dao
 interface JokeDao {
 
-    @Query("SELECT * FROM Joke")
+    @Query("SELECT * FROM Jokes")
     fun getAll() : List<Joke>
 
     @Insert

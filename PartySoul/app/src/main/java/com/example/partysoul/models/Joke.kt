@@ -12,9 +12,9 @@ import java.util.Date
 class Joke(
 
     @PrimaryKey(autoGenerate = true)
-    val id:Int=0,
+    val index:Int=0,
 
-    var rating: Float? = null,
+    var rating: Float,
 
     @SerializedName("id")
     val joke_id:String,
@@ -23,8 +23,5 @@ class Joke(
     val content: String,
 
     var source:String? =null,
-
-    @ColumnInfo(name = "created_at", defaultValue = "CURRENT_TIMESTAMP")
-    val createdAt: Any,
 
 ):Serializable

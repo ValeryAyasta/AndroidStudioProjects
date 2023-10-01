@@ -49,4 +49,9 @@
     <string name="title_activity_jokes">JokesActivity</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="branding">Branding</string>
+    <string name="best_joke">Best Joke</string>
+    <string name="jokes">Jokes</string>
+    <string name="all_jokes">All Jokes</string>
+    <string name="favorites">Favorites</string>
 </resources>
