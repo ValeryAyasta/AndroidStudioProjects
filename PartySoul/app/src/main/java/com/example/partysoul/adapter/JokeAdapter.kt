@@ -4,18 +4,22 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.RatingBar
 import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.Adapter
 import com.example.partysoul.R
+import com.example.partysoul.database.AppDatabase
 import com.example.partysoul.models.Joke
 
 class JokeAdapter(val jokes: List<Joke>, val context: Context) : Adapter<JokeAdapter.ViewHolder>(){
     class ViewHolder (val view: View) : RecyclerView.ViewHolder(view) {
         val tvJoke = view.findViewById<TextView>(R.id.tvJoke)
         val tvSource = view.findViewById<TextView>(R.id.tvSource)
+        val rbRating = view.findViewById<RatingBar>(R.id.rbRating)
         val cvJoke  = view.findViewById<CardView>(R.id.cvJoke)
+
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -34,6 +38,13 @@ class JokeAdapter(val jokes: List<Joke>, val context: Context) : Adapter<JokeAda
         holder.tvJoke.text = joke.content;
 
         holder.tvSource.text = joke.source;
+
+
+        holder.rbRating.setOnRatingBarChangeListener { _, rating, _ ->
+            joke.rating = rating
+
+            AppDatabase.getInstance(context).getDao().insertJoke(joke)
+        }
 
         //si hay imagen traerla acá (Picasso)
     }

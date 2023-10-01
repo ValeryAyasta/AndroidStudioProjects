@@ -1,11 +1,12 @@
-package com.example.partysoul
+package com.example.partysoul.controller.activities
 
 import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.webkit.ConsoleMessage
+import android.util.Log
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.partysoul.R
 import com.example.partysoul.adapter.JokeAdapter
 import com.example.partysoul.models.ApiResponseHeader
 import com.example.partysoul.models.Joke
@@ -15,7 +16,6 @@ import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import java.io.Console
 import java.util.Date
 
 class MainActivity : AppCompatActivity() {
@@ -30,6 +30,8 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         rvJokes = findViewById<RecyclerView>(R.id.rvJokes)
+
+
 
 
         loadJokes(this)
@@ -73,10 +75,13 @@ class MainActivity : AppCompatActivity() {
 
 
                 }
+                else{
+                    Log.d("Activity Fail", "Error: " + response.code())
+                }
             }
 
             override fun onFailure(call: Call<ApiResponseHeader>, t: Throwable) {
-                TODO("Not yet implemented")
+               Log.d("Activity Fail", "Error: " + t.toString())
             }
 
         })

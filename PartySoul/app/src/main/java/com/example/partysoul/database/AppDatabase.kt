@@ -6,7 +6,7 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.example.partysoul.models.Joke
 
-/*
+
 @Database(entities = arrayOf(Joke::class), version = 1)
 abstract class AppDatabase : RoomDatabase() {
     abstract fun getDao() : JokeDao
@@ -24,4 +24,4 @@ abstract class AppDatabase : RoomDatabase() {
         }
     }
 
-}*/
+}

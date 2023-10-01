@@ -8,13 +8,13 @@ import java.io.Serializable
 import java.util.Calendar
 import java.util.Date
 
-@Entity
+@Entity(tableName = "jokes")
 class Joke(
 
-    //@PrimaryKey(autoGenerate = true)
-    //val id:Int=0,
+    @PrimaryKey(autoGenerate = true)
+    val id:Int=0,
 
-    val rating: Float? = null,
+    var rating: Float? = null,
 
     @SerializedName("id")
     val joke_id:String,
